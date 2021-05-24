@@ -23,6 +23,4 @@ public class AuthorDataFetcher implements DataFetcher<Authors> {
 		Authors authors = authorRepository.findById(book.getAuthors().getId());
 		return authors;
 	}
-	
-	
 }

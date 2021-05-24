@@ -13,7 +13,7 @@ import com.aya.repo.BookRepository;
 import graphql.schema.DataFetcher;
 import graphql.schema.DataFetchingEnvironment;
 @Component
-public class CreateBookService implements DataFetcher<Book>{
+public class CreateBookDataFetcher implements DataFetcher<Book>{
 
 	@Autowired
 	BookRepository bookRepository;

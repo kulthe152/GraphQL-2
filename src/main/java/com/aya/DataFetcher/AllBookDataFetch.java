@@ -20,6 +20,10 @@ public class AllBookDataFetch implements DataFetcher<List<Book>>{
 	public List<Book> get(DataFetchingEnvironment environment) throws Exception {
 		return bookRepository.findAll();
 	}
+	
+	public void businesslogic_44452() {
+		System.out.println("Business Logic executed 44452");
+	}
 
 	
 }
