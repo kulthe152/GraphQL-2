@@ -12,7 +12,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import com.aya.DataFetcher.AllBookDataFetch;
 import com.aya.DataFetcher.AuthorDataFetcher;
 import com.aya.DataFetcher.BookDataFetch;
-import com.aya.DataFetcher.CreateBookService;
+import com.aya.DataFetcher.CreateBookDataFetcher;
 
 import graphql.GraphQL;
 import graphql.schema.GraphQLSchema;
@@ -36,7 +36,7 @@ public class GraphQl2Application {
 	@Autowired
 	private BookDataFetch bookDataFetch;
 	@Autowired
-	private CreateBookService createBookService;
+	private CreateBookDataFetcher CreateBookDataFetcher;
 	
 	@SuppressWarnings({ "deprecation", "deprecation", "deprecation" })
 	public static void main(String[] args) {
@@ -64,7 +64,7 @@ public class GraphQl2Application {
 		RuntimeWiring runtimeWiring = RuntimeWiring.newRuntimeWiring()
 				.type(TypeRuntimeWiring.newTypeWiring("Query").dataFetcher("getBook", bookDataFetch))
 				.type(TypeRuntimeWiring.newTypeWiring("Query").dataFetcher("getBooks", allBookDataFetch))
-				.type(TypeRuntimeWiring.newTypeWiring("Mutation").dataFetcher("createBook", createBookService))
+				.type(TypeRuntimeWiring.newTypeWiring("Mutation").dataFetcher("createBook", CreateBookDataFetcher))
 				.type(TypeRuntimeWiring.newTypeWiring("Book").dataFetcher("author", authorDataFetcher))				
 				.build();
 		
